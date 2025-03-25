@@ -11,7 +11,7 @@ declare -A project_locations
 
 location_prefix="$HOME/projects/addissoftware"
 
-sessions=("$ADMIN_SESSION" "$DRIVER_SESSION" "$SWAPPER_SESSION" "$CHARGER_SESSION")
+sessions=($ADMIN_SESSION $DRIVER_SESSION $SWAPPER_SESSION $CHARGER_SESSION)
 backend_sessions=($BACKEND_SESSION $BACKEND_MOBILE_SESSION)
 
 project_locations[$DRIVER_SESSION]="$location_prefix/driver-app" 
