@@ -50,3 +50,14 @@ for b_session in ${backend_sessions[@]}; do
 	fi
 done
 
+
+# create emulator session
+tmux new-session -d -s "emulator" -n "medium_phone"
+
+# raylib project path
+RAYLIB_SESSION_NAME="raylib"
+RAYLIB_PROJECT_LOCATION="/home/leul/projects/leuel/raylib-visuals"
+
+tmux new-session -d -s "$RAYLIB_SESSION_NAME" -c "$RAYLIB_PROJECT_LOCATION" -n nvim 
+tmux new-window -t "$RAYLIB_SESSION_NAME" -c "$RAYLIB_PROJECT_LOCATION" -n zsh
+
