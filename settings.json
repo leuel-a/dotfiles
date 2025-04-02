@@ -1,38 +1,62 @@
 {
+  "explorer.compactFolders": false,
   "workbench.startupEditor": "none",
-  "vim.leader": "<space>",
-  "vim.foldfix": true,
   "vim.handleKeys": {
     "<C-d>": true,
     "<C-s>": false,
-    "<C-z>": false,
+    "<C-z>": true,
     "<C-j>": false,
-    "<C-p>": false
+    "<C-p>": false,
+    "<C-b>": false
   },
+  "vim.leader": "<space>",
+  "vim.foldfix": true,
+  "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [
     {
       "before": ["<leader>", "p", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
+    { "before": ["<leader>", "c", "i"], "commands": ["inlineChat.start"] },
     {
-      "before": ["<leader>", "c", "i"],
-      "commands": ["inlineChat.start"]
-    },
-    {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.terminal.toggleTerminal"]
+      "before": ["<leader>", "f", "d"],
+      "commands": ["editor.action.formatDocument"]
     },
     {
       "before": ["<leader>", "p", "c"],
       "commands": ["workbench.action.showCommands"]
     },
     {
-      "before": ["<leader>", "w"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "before": ["<leader>", "t", "p"],
+      "commands": ["workbench.action.togglePanel"]
     },
     {
-      "before": ["<leader>", "f", "d"],
-      "commands": ["editor.action.formatDocument"]
+      "before": ["<leader>", "p", "r"],
+      "commands": ["workbench.action.openRecent"]
+    },
+    {
+      "before": ["<leader>", "u", "s"],
+      "commands": ["workbench.action.openSettingsJson"]
+    },
+    {
+      "before": ["<leader>", "p", "g"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "t", "s"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "p", "d"],
+      "commands": ["workbench.view.debug"]
+    },
+    {
+      "before": ["<leader>", "p", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "k", "s"],
+      "commands": ["workbench.action.closeUnmodifiedEditors"]
     }
   ],
   "vim.visualModeKeyBindings": [
@@ -40,50 +64,89 @@
       "before": ["<leader>", "p", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
+    { "before": ["<leader>", "c", "i"], "commands": ["inlineChat.start"] },
     {
-      "before": ["<leader>", "c", "i"],
-      "commands": ["inlineChat.start"]
-    },
-    {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.terminal.toggleTerminal"]
+      "before": ["<leader>", "f", "d"],
+      "commands": ["editor.action.formatDocument"]
     },
     {
       "before": ["<leader>", "p", "c"],
       "commands": ["workbench.action.showCommands"]
     },
     {
-      "before": ["<leader>", "w"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "before": ["<leader>", "t", "p"],
+      "commands": ["workbench.action.togglePanel"]
     },
     {
-      "before": ["<leader>", "f", "d"],
-      "commands": ["editor.action.formatDocument"]
+      "before": ["<leader>", "p", "r"],
+      "commands": ["workbench.action.openRecent"]
+    },
+    {
+      "before": ["<leader>", "u", "s"],
+      "commands": ["workbench.action.openSettingsJson"]
+    },
+    {
+      "before": ["<leader>", "p", "g"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "t", "s"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "p", "d"],
+      "commands": ["workbench.view.debug"]
+    },
+    {
+      "before": ["<leader>", "p", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "k", "s"],
+      "commands": ["workbench.action.closeUnmodifiedEditors"]
     }
   ],
-  "vim.useSystemClipboard": true,
-  "workbench.editor.enablePreview": false,
-  "[jsonc]": {
+  "workbench.iconTheme": "material-icon-theme",
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "powermode.enabled": false,
+  "powermode.combo.counterEnabled": "hide",
+  "powermode.explosions.enabled": true,
+  "powermode.shake.enabled": false,
+  "powermode.presets": "flames",
+  "powermode.combo.location": "off",
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
   },
-  "workbench.externalBrowser": "firefox",
-  "npm.packageManager": "yarn",
+  "workbench.editor.enablePreview": false,
   "editor.lineNumbers": "relative",
-  "[typescriptreact]": {
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "redhat.telemetry.enabled": true,
-  "workbench.colorTheme": "GitHub Dark"
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "npm.packageManager": "yarn",
+  "editor.fontSize": 12,
+  "remote.portsAttributes": {
+    "5000": {
+      "protocol": "https"
+    }
+  },
+  "errorLens.enabled": true,
+  "editor.linkedEditing": true,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.statusBar.visible": true,
+  "window.menuBarVisibility": "hidden",
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": true
 }
