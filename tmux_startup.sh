@@ -27,6 +27,8 @@ for session in ${sessions[@]}; do
 		# create the session with an initial window named 'git'
 		tmux new-session -d -s "$session" -c "${project_locations[$session]}" -n git 
 
+		tmux new-window -t "$session:" -c "${project_locations[$session]}" -n nvim 
+
 		# create the windows
 		if [[ $session == "admin" ]]; then
 			tmux new-window -t "$session:" -c "${project_locations[$session]}" -n server 
@@ -52,12 +54,18 @@ done
 
 
 # create emulator session
-tmux new-session -d -s "emulator" -n "medium_phone"
+EMULATOR_SESSION_NAME="emulator"
+
+if ! tmux has-session -t "$EMULATOR_SESSION_NAME" 2>/dev/null; then
+	tmux new-session -d -s "$EMULATOR_SESSION_NAME" -n "medium_phone"
+fi
 
 # raylib project path
 RAYLIB_SESSION_NAME="raylib"
 RAYLIB_PROJECT_LOCATION="/home/leul/projects/leuel/raylib-visuals"
 
-tmux new-session -d -s "$RAYLIB_SESSION_NAME" -c "$RAYLIB_PROJECT_LOCATION" -n nvim 
-tmux new-window -t "$RAYLIB_SESSION_NAME" -c "$RAYLIB_PROJECT_LOCATION" -n zsh
+if ! tmux has-session -t "$RAYLIB_SESSION_NAME" 2>/dev/null; then
+	tmux new-session -d -s "$RAYLIB_SESSION_NAME" -c "$RAYLIB_PROJECT_LOCATION" -n nvim 
+	tmux new-window -t "$RAYLIB_SESSION_NAME" -c "$RAYLIB_PROJECT_LOCATION" -n zsh
+fi
 
