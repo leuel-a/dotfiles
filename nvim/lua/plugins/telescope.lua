@@ -14,7 +14,11 @@ return {
 			require("telescope").setup {
 				pickers = {
 					find_files = { theme = "ivy" },
-					git_files = { theme = "ivy" },
+					live_grep = { theme = "ivy" },
+					git_files = {
+						theme = "ivy",
+						recurse_submodules = true,
+					}
 				},
 				extensions = {
 					fzf = {}
@@ -24,6 +28,8 @@ return {
 			require("telescope").load_extension("fzf")
 
 			vim.keymap.set("n", "<space>fh", require("telescope.builtin").help_tags)
+
+			vim.keymap.set("n", "<space>lg", require("telescope.builtin").live_grep)
 
 			if is_git_repository() then
 				vim.keymap.set("n", "<space>fd", require("telescope.builtin").git_files)
