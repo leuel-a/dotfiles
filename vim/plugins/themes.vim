@@ -1,0 +1,2 @@
+Plug 'rose-pine/vim'
+
