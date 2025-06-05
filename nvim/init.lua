@@ -27,6 +27,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	end
 })
 
+vim.keymap.set('n', '<space>o', '<cmd>Explore<CR>', { desc = "open netrw command" })
+
+-- shortcuts for quick fix list
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>', { desc = "open next item on quick fix list" })
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>', { desc = "open previous item on quick fix list" })
+
+vim.cmd('colorscheme habamax')
+
 vim.keymap.set("n", "<space>st", function()
 	vim.cmd.vnew()
 	vim.cmd.term()

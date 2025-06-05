@@ -47,7 +47,10 @@ return {
 				capabilities = capabilities,
 			}
 
-			vim.lsp.enable('prismals')
+			require('lspconfig').pylsp.setup {
+				capabilities = capabilities,
+			}
+
 			vim.keymap.set('n', '<space>e', function()
 				vim.diagnostic.open_float()
 			end, { desc = 'open vim diagnostic floating window' })

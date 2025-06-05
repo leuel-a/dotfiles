@@ -14,4 +14,7 @@ if vim.g.vscode then
 
 	vim.keymap.set('n', '<space>fc', function() vscode.action('workbench.action.showCommands') end,
 		{ desc = 'Open show all commands picker' })
+
+	vim.keymap.set('n', '<space>ff', function() vscode.action('editor.action.formatDocument') end,
+		{ desc = 'Format the current document' })
 end

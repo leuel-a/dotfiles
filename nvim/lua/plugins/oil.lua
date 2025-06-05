@@ -1,5 +1,8 @@
 return {
 	'stevearc/oil.nvim',
+
+	enabled = false,
+
 	opts = {},
 
 	dependencies = { { 'echasnovski/mini.icons', opts = {} } },
@@ -10,6 +13,7 @@ return {
 
 			skip_confirm_for_simple_edits = false,
 
+			-- I have no idea what the errors are here
 			keymaps = {
 				['g?'] = { 'actions.show_help', mode = 'n' },
 				['<CR>'] = 'actions.select',

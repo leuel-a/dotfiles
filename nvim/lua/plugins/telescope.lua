@@ -13,10 +13,7 @@ return {
 		config = function()
 			require("telescope").setup {
 				pickers = {
-					find_files = { theme = "ivy" },
-					live_grep = { theme = "ivy" },
 					git_files = {
-						theme = "ivy",
 						recurse_submodules = true,
 					}
 				},

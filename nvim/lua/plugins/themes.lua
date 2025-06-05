@@ -1,9 +1,10 @@
 return {
 	{
-		enabled = false,
+		enabled = true,
 		"folke/tokyonight.nvim",
 	},
 	{
+		enabled = true,
 		"rose-pine/neovim",
 		config = function()
 			require('rose-pine').setup({
@@ -12,7 +13,11 @@ return {
 					bold = false
 				}
 			})
-			vim.cmd('colorscheme rose-pine')
 		end
+	},
+	{
+		enabled = true,
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
 	}
 }
