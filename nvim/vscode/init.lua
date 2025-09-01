@@ -1,20 +1,26 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 if vim.g.vscode then
-	local vscode = require('vscode')
+  local vscode = require("vscode")
 
-	vim.keymap.set('n', '<space>fd', function() vscode.action('workbench.action.quickOpen') end,
-		{ desc = "Open quick open file picker for searching files" })
+  vim.keymap.set("n", "<space>fd", function() vscode.action("workbench.action.quickOpen") end,
+    { desc = "open quick open in vscode" })
 
-	vim.keymap.set('n', '<space>en', function() vscode.action('workbench.action.openSettingsJson') end,
-		{ desc = 'Open vscode user settings JSON file' })
+  vim.keymap.set("n", "<space>fc", function() vscode.action("workbench.action.showCommands") end, {
+    desc = "show all the commands"
+  })
 
-	vim.keymap.set('n', '<space>fc', function() vscode.action('workbench.action.showCommands') end,
-		{ desc = 'Open show all commands picker' })
+  vim.keymap.set({ "n", "v" }, "<space>en",
+    function() vscode.action("workbench.action.openSettingsJson") end,
+    { desc = "open configuration for vscode / cursor" })
 
-	vim.keymap.set('n', '<space>ff', function() vscode.action('editor.action.formatDocument') end,
-		{ desc = 'Format the current document' })
+  vim.keymap.set({ "n", "v" }, "<space>o",
+    function() vscode.action("workbench.action.toggleSidebarVisibility") end, {
+      desc = "toggle sidebar when on normal, or visual mode in vscode / cursor"
+    })
+
+  vim.keymap.set({ "n", "v" }, "<space>st",
+    function() vscode.action("workbench.action.terminal.toggleTerminal") end, {
+      desc = "toggle terminal toggle terminal for visual and normal modes"
+    })
 end
