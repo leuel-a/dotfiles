@@ -1,0 +1,8 @@
+root = true
+
+[*.lua]
+indent_size = 4
+indent_style = space
+
+[*.xml]
+indent_style = space

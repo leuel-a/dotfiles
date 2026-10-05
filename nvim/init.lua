@@ -425,8 +425,15 @@ require('lazy').setup({
       local tsserver_filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'vue' }
       local vue_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
 
+      local lombok_jar = vim.fn.stdpath 'data' .. '/mason/packages/jdtls/lombok.jar'
+
       local servers = {
-        jdtls = {},
+        jdtls = {
+          cmd = {
+            'jdtls',
+            '--jvm-arg=-javaagent:' .. lombok_jar,
+          },
+        },
         ts_ls = {
           filetypes = tsserver_filetypes,
           init_options = {
@@ -610,8 +617,10 @@ require('lazy').setup({
         },
       }
 
-      -- vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.colorscheme 'habamax'
+      vim.cmd.colorscheme 'zenburned'
+      -- vim.cmd.colorscheme 'tokyonight-storm'
+      -- vim.cmd.colorscheme 'vscode'
+      -- vim.cmd.colorscheme 'terafox'
     end,
   },
 
@@ -628,6 +637,9 @@ require('lazy').setup({
       statusline.section_location = function()
         return '%2l:%-2v'
       end
+
+      -- local indentscope = require 'mini.indentscope'
+      -- indentscope.setup {}
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -666,7 +678,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',

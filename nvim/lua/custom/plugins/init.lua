@@ -3,13 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {
-    'tpope/vim-fugitive',
-    config = function()
-      vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>', { desc = '[G]it [S]tatus' })
-      vim.keymap.set('n', '<leader>gc', '<cmd>Git commit<CR>', { desc = '[G]it [C]ommit' })
-    end,
-  },
+  { 'tpope/vim-fugitive' },
   {
     'stevearc/oil.nvim',
     enabled = true,
@@ -77,10 +71,29 @@ return {
     lazy = false,
     priority = 1000,
     -- you can set set configuration options here
-    -- config = function()
-    --     vim.g.zenbones_darken_comments = 45
-    --     vim.cmd.colorscheme('zenbones')
-    -- end
+    config = function()
+      vim.g.zenbones_darken_comments = 45
+      vim.g.zenbones_italic_comments = false
+      vim.g.zenbones_italic_strings = false
+
+      vim.g.zenwritten_italic_comments = false
+      vim.g.zenwritten_italic_strings = false
+
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        pattern = 'zen*',
+        callback = function()
+          for name, def in pairs(vim.api.nvim_get_hl(0, {})) do
+            if def.italic or (def.cterm and def.cterm.italic) then
+              def.italic = false
+              if def.cterm then
+                def.cterm.italic = false
+              end
+              vim.api.nvim_set_hl(0, name, def)
+            end
+          end
+        end,
+      })
+    end,
   },
   {
     'mfussenegger/nvim-jdtls',
